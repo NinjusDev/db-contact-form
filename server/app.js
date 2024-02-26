@@ -5,10 +5,10 @@ require("dotenv").config();
 
 // Create MySQL connection pool
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "130507",
-  database: process.env.DB_NAME || "goeventos",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -41,12 +41,31 @@ app.get("/", (req, res) => {
   res.sendFile(clientPath);
 });
 
+// Función para construir la tabla HTML con los mensajes
+function buildMessagesTable(messages) {
+  let html = "<table border='1'>";
+  html +=
+    "<tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Telefono</th><th>Mensaje</th></tr>";
+  messages.forEach((message) => {
+    html += `<tr><td>${message.id}</td><td>${message.firstname}</td><td>${message.lastname}</td><td>${message.contactnumber}</td><td>${message.message}</td></tr>`;
+  });
+  html += "</table>";
+  html +=
+    "<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');table{font-family:'Montserrat', sans-serif;width:80%;margin:0 auto;border-collapse:collapse}th{background-color:#f2f2f2;font-weight:bold;padding:10px}td{padding:8px;text-align:left;border-bottom:1px solid #ddd}tr:first-child{font-weight:bold}</style>";
+  return html;
+}
+
 // Ruta para mostrar mensajes
 app.get("/messages", async (req, res) => {
   try {
     // Consulta para obtener mensajes de la base de datos
     const messages = await queryAsync("SELECT * FROM messages");
-    res.render("messages", { messages }); // Renderizar la página de mensajes
+
+    // Construir la tabla HTML con los mensajes
+    const html = buildMessagesTable(messages);
+
+    // Enviar la tabla HTML como respuesta
+    res.status(200).send(html);
   } catch (error) {
     console.error("Error al obtener mensajes:", error);
     res.status(500).send("Error interno del servidor");
