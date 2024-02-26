@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gracias por enviar tu Producto</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: white;
+        text-align: center;
+      }
+
+      header {
+        padding: 20px;
+        background-color: #444;
+        color: white;
+      }
+
+      section.send {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh; /* Ajusta la altura al 100% del viewport */
+      }
+
+      section.send img {
+        max-width: 80%; /* Ajusta el tamaño máximo al ancho del contenedor */
+        max-height: 80%; /* Ajusta el tamaño máximo al alto del contenedor */
+      }
+
+      section {
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      h1 {
+        color: #f4f4f4;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      a:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>¡Gracias por enviarnos tu mensaje, aguarda la respuesta!</h1>
+    </header>
+
+    <section class="send">
+      <img src="./sended.webp" alt="Succesfully Added" />
+    </section>
+
+    <section>
+      <p>Tu mensaje ha sido enviado exitosamente. ¡Gracias por contactarnos!</p>
+      <a href="/">Volver a la Página Principal</a>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuevos Productos</title>
+
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/bitstream-vera-sans");
+
+      * {
+        font-family: "Bitstream Vera Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+
+      header {
+        background-color: #333;
+        padding: 20px;
+        color: white;
+        text-align: center;
+      }
+
+      nav {
+        background-color: #444;
+        padding: 10px;
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+      }
+
+      a {
+        margin: 0 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      section > h1 {
+        padding-top: 20px;
+        font-size: 22px;
+      }
+
+      form {
+        max-width: 500px;
+        margin: 20px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      form input,
+      form textarea,
+      form button {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      form button {
+        background-color: #111;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+      }
+
+      button:hover {
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/contact">Contactanos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <h1>Añade nuevos productos con el siguiente formulario:</h1>
+
+      <form class="form" action="/submit" method="POST">
+        <label>
+          <span>First name</span>
+          <input required name="firstname" type="text" class="input" required />
+        </label>
+
+        <label>
+          <span>Last name</span>
+          <input required name="lastname" type="text" class="input" required />
+        </label>
+
+        <label>
+          <span>Email</span>
+          <input required name="email" type="email" class="input" required />
+        </label>
+
+        <label>
+          <span>Contact number</span>
+          <input
+            required
+            name="contactnumber"
+            type="tel"
+            class="input"
+            required
+          />
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea
+            required
+            name="message"
+            rows="3"
+            class="input01"
+            required
+          ></textarea>
+        </label>
+
+        <button type="submit" class="fancy" id="submit">
+          <span class="top-key"></span>
+          <span class="text">Submit</span>
+          <span class="bottom-key-1"></span>
+          <span class="bottom-key-2"></span>
+        </button>
+      </form>
+    </section>
+  </body>
+</html>
